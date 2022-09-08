@@ -4,17 +4,21 @@ function getMaxLengthString(arrayOfString) {
   if (arrayOfString === undefined || arrayOfString === null){
     return undefined
   }
-  let arr = arrayOfString
-  let newarr = []
-  let x
-  for (let i = 0; i < arr.length ; i++) {
-    for (let j = i+1; j < arr.length ; j++) {
-      if (arr[i].length >= arr[j].length){
-        x = arr[i]
-      }
+  let maxl = 0
+  let arr = []
+
+  for (let i=0 ; i < arrayOfString.length ; i++) {
+    if (arrayOfString[i].length > maxl) {
+      maxl = arrayOfString[i].length
     }
   }
-  newarr.push(x)
-  return newarr
+
+  for (let i=0 ; i < arrayOfString.length ; i++) {
+    if (arrayOfString[i].length == maxl) {
+      arr.push(arrayOfString[i])
+    }
+  }
+
+  return arr
 }
 module.exports = getMaxLengthString
